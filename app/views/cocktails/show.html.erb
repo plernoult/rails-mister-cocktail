@@ -5,7 +5,7 @@
 <div class="d-flex">
 <li class="list-unstyled"><%= dose.description %></li>&nbsp;
 <li class="list-unstyled"><%= dose.ingredient.name %> <%= link_to "❌",
-            dose_path(@cocktail),
+            dose_path(dose),
             method: :delete,
             data: { confirm: "Are you sure?" } %></li>
 </div>
