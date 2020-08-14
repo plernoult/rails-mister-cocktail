@@ -1,8 +1,15 @@
 <h1><%= @cocktail.name %></h1>
+
 <ul>
-<p><% @doses = @cocktail.doses %></p>
-<% @doses.each do |dose| %>
-<li>dose.description</li>
+<% @cocktail.doses.each do |dose| %>
+<div class="d-flex">
+<li class="list-unstyled"><%= dose.description %></li>&nbsp;
+<li class="list-unstyled"><%= dose.ingredient.name %> <%= link_to "❌",
+            dose_path(@cocktail),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></li>
+</div>
 <% end %>
 </ul>
-link_to
+<%= link_to "Add a new Dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+<%= link_to "Back to List", cocktails_path, class: "btn btn-primary" %>
